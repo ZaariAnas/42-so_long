@@ -3,21 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/02/12 15:22:46 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/15 12:08:40 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <mlx.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <mlx.h>
+# include "get_next_line/get_next_line.h"
+# include <fcntl.h>
+# include <stdlib.h>
+# include <stdio.h>
 
-void	RaiseError(char *str);
+# define SO_LONG "Collect and Evade"
+# define WIDTH 1920
+# define HEIGHT 1080
+
+typedef struct s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+void	raise_ptr_error(void *ptr);
+void	raise_arg_error(int nbr, char *map);
+int		esc_key(int keyStroke, t_vars *var);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif
