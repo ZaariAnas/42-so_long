@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azari <azari@student.1337.fr>              +#+  +:+       +#+         #
+#    By: azari <azari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 11:34:25 by azari             #+#    #+#              #
-#    Updated: 2023/02/15 10:22:51 by azari            ###   ########.fr        #
+#    Updated: 2023/02/15 17:35:22 by azari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFILES	= so_long.c								\
 		  src/ErrorHandling.c					\
 		  get_next_line/get_next_line.c			\
 		  get_next_line/get_next_line_utils.c	\
-		  src/EventHandling/WindowHooks.c		\
+		  src/WindowHooks.c						\
 
 OFILES	= $(CFILES:.c=.o)
 

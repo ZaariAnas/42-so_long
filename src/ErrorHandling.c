@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ErrorHandling.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:09:23 by azari             #+#    #+#             */
-/*   Updated: 2023/02/15 12:01:05 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/15 17:33:29 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	raise_arg_error(int nbr, char *map)
 	ext = ft_substr(map, start, 4);
 	if (ft_strcmp(".ber", ext))
 	{
-		perror("map file unvalid ()");
+		perror("map file unvalid (require .ber)");
 		free(ext);
 		exit(0);
 	}
