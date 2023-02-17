@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:09:23 by azari             #+#    #+#             */
-/*   Updated: 2023/02/17 18:49:16 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/17 19:07:55 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	raise_ptr_error(void *ptr)
 
 void	raise_error(char *str)
 {
-		perror(str);
-		exit(0);
+	perror(str);
+	exit(0);
 }
 
 void	raise_arg_error(int nbr, char *map)

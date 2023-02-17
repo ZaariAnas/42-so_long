@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:29:00 by azari             #+#    #+#             */
-/*   Updated: 2023/02/17 17:52:02 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/17 19:08:42 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	check_map_shape(char **map, int size)
 {
-	int	i;
-	size_t norm;
+	int		i;
+	size_t	norm;
 
 	i = -1;
 	norm = ft_strlen(map[++i]);
@@ -59,8 +59,9 @@ int	check_map_walls(char **map, int size)
 
 int	check_in_set(char c, char *set)
 {
-	int	i = -1;
+	int	i;
 
+	i = -1;
 	while (set[++i])
 	{
 		if (set[i] == c)

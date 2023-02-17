@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:40 by azari             #+#    #+#             */
-/*   Updated: 2023/02/17 18:50:55 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/17 19:09:33 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	**get_map(char *map_file)
 	while (++i < size)
 		map[i] = get_next_line(fd);
 	map[i] = NULL;
-	return(map);
+	return (map);
 }
 
 void	process_map(char **map, char *map_file)
