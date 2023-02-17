@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ErrorHandling.c                                    :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:09:23 by azari             #+#    #+#             */
-/*   Updated: 2023/02/15 17:33:29 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/17 18:49:16 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,25 @@ void	raise_ptr_error(void *ptr)
 	}
 }
 
+void	raise_error(char *str)
+{
+		perror(str);
+		exit(0);
+}
+
 void	raise_arg_error(int nbr, char *map)
 {
 	int		start;
 	char	*ext;
 
 	if (nbr != 2)
-	{
-		perror("unvalid args");
-		exit(0);
-	}
+		raise_error("error:\nunvalid arguments");
 	start = ft_strlen(map) - 4;
 	ext = ft_substr(map, start, 4);
 	if (ft_strcmp(".ber", ext))
 	{
-		perror("map file unvalid (require .ber)");
 		free(ext);
-		exit(0);
+		raise_error("error:\nunvalid map file");
 	}
 	free(ext);
 }
