@@ -50,21 +50,24 @@ int	check_map_element_validity(char **map, int size)
 	return (0);
 }
 
-// char	**flood_fill_map(char **map, int x, int y, char start, char end)
-// {
-// 	if (map[x][y] == 'C' || map[x][y] == 'P')
-// 		map[x][y] = '0';
+char	**flood_fill_map(char **map, int x, int y, char start, char end)
+{
+	if (map[x][y] == 'C' || map[x][y] == 'P')
+		map[x][y] = '0';
 
-// 	if (map[x][y] == '0')
-// 	{
-// 		map[x][y] == 'W';
-//      	flood_fill_map(map, x - 1, y, start, end);
-//      	flood_fill_map(map, x + 1, y, start, end);
-//      	flood_fill_map(map, x, y - 1, start, end);
-//      	flood_fill_map(map, x, y + 1, start, end);
-// 	}
-// 	return (map);
-// }
+	if (map[x][y] == '0')
+	{
+		map[x][y] == 'W';
+     	flood_fill_map(map, x - 1, y, start, end);
+     	flood_fill_map(map, x + 1, y, start, end);
+     	flood_fill_map(map, x, y - 1, start, end);
+     	flood_fill_map(map, x, y + 1, start, end);
+	}
+	return (map);
+}
+
+//https://www.youtube.com/watch?v=b5HmdWRqyOg&list=RDMM&start_radio=1&rv=G7KNmW9a75Y
+
 
 // char	**dup_map(char **map)
 // {
