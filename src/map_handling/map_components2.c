@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_components2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:10:10 by azari             #+#    #+#             */
-/*   Updated: 2023/02/20 15:29:35 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/20 19:22:34 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,53 +50,55 @@ int	check_map_element_validity(char **map, int size)
 	return (0);
 }
 
-char	**flood_fill_map(char **map, int x, int y, char start, char end)
+char	**flood_fill_map(char **map, int x, int y)
 {
 	if (map[x][y] == 'C' || map[x][y] == 'P')
 		map[x][y] = '0';
 
 	if (map[x][y] == '0')
 	{
-		map[x][y] == 'W';
-     	flood_fill_map(map, x - 1, y, start, end);
-     	flood_fill_map(map, x + 1, y, start, end);
-     	flood_fill_map(map, x, y - 1, start, end);
-     	flood_fill_map(map, x, y + 1, start, end);
+		map[x][y] = '*';
+     	flood_fill_map(map, x - 1, y);
+     	flood_fill_map(map, x + 1, y);
+     	flood_fill_map(map, x, y - 1);
+     	flood_fill_map(map, x, y + 1);
 	}
 	return (map);
 }
 
-//https://www.youtube.com/watch?v=b5HmdWRqyOg&list=RDMM&start_radio=1&rv=G7KNmW9a75Y
+char	**dup_map(char **map)
+{
+	char	**dup;
+	int		size;
+	int		i;
 
+	i = -1;
+	size = get_map_size(map);
+	dup = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!map)
+		return (NULL);
+	while (map[++i])
+		dup[i] = strdup(map[i]);
+	dup[i] = NULL;
+	return (dup);
+}
 
-// char	**dup_map(char **map)
-// {
-// 	int		i;
-// 	int		fd;
-// 	int		size;
-// 	char	**map_dup;
+int	check_valid_path_exit(char **map)
+{
+	char	**dup;
+	int		*pos;
+	int		x;
+	int		y;
 
-// 	i = -1;
-// 	size = get_map_size(map);
-// 	map_dup = (char **)malloc(sizeof(char *) * (size + 1));
-// 	if (!map_dup)
-// 	{
-// 		free(map_dup);
-// 		raise_error("error:\nmemory allocation failure");
-// 	}
-// 	while (++i < size)
-// 		map_dup[i] = get_next_line(fd);
-// 	map_dup[i] = NULL;
-// 	return (map_dup);
-// }
-
-// int	get_map_size(char **map)
-// {
-// 	int	i;
-
-// 	i = -1;
-// 	while (map[i])
-// 		i++;
-// 	return (i);
-// }
+	dup = dup_map(map);
+	pos = get_position(map, 'P');
+	dup = flood_fill_map(dup, pos[0], pos[1]);
+	pos = get_position(map, 'E');
+	x = pos[0];
+	y = pos[1];
+	if (dup[x + 1][y] == '*' || dup[x - 1][y] == '*'
+		|| dup[x][y + 1] == '*' || dup[x][y - 1] == '*')
+		return (1);
+	return (0);
+}
 
