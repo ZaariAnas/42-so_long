@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/02/20 19:21:55 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/21 11:08:24 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-// # include <mlx.h>
-// # include "get_next_line/get_next_line.h"
+# include <mlx.h>
+# include "get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -44,5 +44,13 @@ int		check_map_shape(char **map, int size);
 int		check_map_elements(char **map, int size);
 int		check_map_element_validity(char **map, int size);
 int		check_in_set(char c, char *set);
+int		*get_position(char **map, char c);
+int		get_occurence(char c, char **map, int size);
+int		check_map_element_validity(char **map, int size);
+char	**flood_fill_map(char **map, int x, int y);
+char	**dup_map(char **map);
+int		check_valid_path_exit(char **map);
+int		get_map_size(char **map);
+int		check_valid_path_col(char **map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:40 by azari             #+#    #+#             */
-/*   Updated: 2023/02/17 19:09:33 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/21 10:42:43 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,25 @@ void	process_map(char **map, char *map_file)
 
 	size = count_map_lines(map_file);
 	if (check_map_shape(map, size))
-		raise_error("Error:\nmap shape unvalid");
+		raise_error("Error\nmap shape unvalid");
 	if (check_map_walls(map, size))
-		raise_error("Error:\nmap barriers unvalid");
+		raise_error("Error\nmap barriers unvalid");
 	if (check_map_elements(map, size))
-		raise_error("Error:\nmap elements unvalid");
+		raise_error("Error\nmap elements unvalid");
 	if (check_map_element_validity(map, size))
-		raise_error("Error:\nmap elements unvalid");
+		raise_error("Error\nmap elements unvalid");
+	if (!check_valid_path_exit(map))
+		raise_error("Error\nmap conflict :: no valid path to exit");
+	if (!check_valid_path_col(map))
+		raise_error("Error\nmap conflict :: no valid path to collectibles");
+}
+
+int	get_map_size(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+		i++;
+	return (i);
 }

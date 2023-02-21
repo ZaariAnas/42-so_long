@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_components2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:10:10 by azari             #+#    #+#             */
-/*   Updated: 2023/02/21 08:13:06 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/21 11:08:03 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,13 @@ char	**flood_fill_map(char **map, int x, int y)
 {
 	if (map[x][y] == 'C' || map[x][y] == 'P')
 		map[x][y] = '0';
-
 	if (map[x][y] == '0')
 	{
 		map[x][y] = '*';
-     	flood_fill_map(map, x - 1, y);
-     	flood_fill_map(map, x + 1, y);
-     	flood_fill_map(map, x, y - 1);
-     	flood_fill_map(map, x, y + 1);
+		flood_fill_map(map, x - 1, y);
+		flood_fill_map(map, x + 1, y);
+		flood_fill_map(map, x, y - 1);
+		flood_fill_map(map, x, y + 1);
 	}
 	return (map);
 }
@@ -78,7 +77,7 @@ char	**dup_map(char **map)
 	if (!map)
 		return (NULL);
 	while (map[++i])
-		dup[i] = strdup(map[i]);
+		dup[i] = ft_strdup(map[i]);
 	dup[i] = NULL;
 	return (dup);
 }
@@ -102,28 +101,29 @@ int	check_valid_path_exit(char **map)
 	return (0);
 }
 
-int	*get_position(char **map, char c)
+int	check_valid_path_col(char **map)
 {
-	int	x;
-	int y;
-	int	*pos;
-	int	size;
+	char	**dup;
+	int		*pos;
+	int		x;
+	int		y;
 
+	dup = dup_map(map);
+	pos = get_position(map, 'P');
+	dup = flood_fill_map(dup, pos[0], pos[1]);
 	x = -1;
-	pos = (int *)malloc(sizeof(int) * 2);
-	size = get_map_size(map);
-	while (++x < size)
+	while (dup[++x])
 	{
 		y = -1;
-		while (map[x][++y])
+		while (dup[x][++y])
 		{
-			if (map[x][y] == c)
+			if (dup[x][y] == 'C')
 			{
-				pos[0] = x;
-				pos[1] = y;
-				return (pos);			
+				if (dup[x + 1][y] != '*' && dup[x - 1][y] != '*'
+					&& dup[x][y + 1] != '*' && dup[x][y - 1] != '*')
+				return (0);
 			}
 		}
 	}
-	return (NULL);
+	return (1);
 }
