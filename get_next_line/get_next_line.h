@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:11:01 by azari             #+#    #+#             */
-/*   Updated: 2022/10/27 14:08:08 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/21 12:14:33 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+
+# define BUFFER_SIZE 100
 
 char	*get_next_line(int fd);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
