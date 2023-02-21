@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:10:10 by azari             #+#    #+#             */
-/*   Updated: 2023/02/20 19:22:34 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/21 08:13:06 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,3 +102,28 @@ int	check_valid_path_exit(char **map)
 	return (0);
 }
 
+int	*get_position(char **map, char c)
+{
+	int	x;
+	int y;
+	int	*pos;
+	int	size;
+
+	x = -1;
+	pos = (int *)malloc(sizeof(int) * 2);
+	size = get_map_size(map);
+	while (++x < size)
+	{
+		y = -1;
+		while (map[x][++y])
+		{
+			if (map[x][y] == c)
+			{
+				pos[0] = x;
+				pos[1] = y;
+				return (pos);			
+			}
+		}
+	}
+	return (NULL);
+}
