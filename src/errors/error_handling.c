@@ -6,11 +6,11 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:09:23 by azari             #+#    #+#             */
-/*   Updated: 2023/02/17 19:07:55 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/21 16:57:36 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

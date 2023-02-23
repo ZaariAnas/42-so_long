@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/02/21 11:08:24 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/21 17:44:41 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_vars {
 	void	*img;
 	int		map_lines;
 	char	**map;
+	void	*brick_wall;
 }				t_vars;
 
 void	raise_ptr_error(void *ptr);
@@ -52,5 +53,6 @@ char	**dup_map(char **map);
 int		check_valid_path_exit(char **map);
 int		get_map_size(char **map);
 int		check_valid_path_col(char **map);
+void	put_map_to_win(t_vars *vars, int keycode);
 
 #endif
