@@ -6,7 +6,7 @@
 #    By: azari <azari@student.1337.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 11:34:25 by azari             #+#    #+#              #
-#    Updated: 2023/02/21 16:57:54 by azari            ###   ########.fr        #
+#    Updated: 2023/02/24 07:19:15 by azari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFILES	= so_long.c								\
 		  src/errors/error_handling.c			\
 		  get_next_line/get_next_line.c			\
 		  get_next_line/get_next_line_utils.c	\
-		  src/window_hooks.c					\
+		  src/map_handling/map_triggers.c		\
 		  src/map_handling/map_handling.c		\
 		  src/map_handling/map_components.c		\
 		  src/map_handling/map_components2.c	\
