@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:39:59 by azari             #+#    #+#             */
-/*   Updated: 2023/02/26 19:07:50 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/26 19:26:53 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	esc_key(int keyStroke, t_vars *var)
 	exit(0);
 }
 
-void	rendering_map(t_vars *vars)
+ 
 {
 	int	x;
 	int	y;
@@ -37,13 +37,12 @@ void	rendering_map(t_vars *vars)
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->fs,
 				 y * 40, x * 40);
 			else if (vars->map[x][y] == 'E')
-				render
+				rendering_exit(&vars, x, y);
 			else if (vars->map[x][y] == 'C')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->col,
 				 y * 40, x * 40);
 			else
-				mlx_put_image_to_window(vars->mlx, vars->win, vars->pl,
-				 y * 40, x * 40);
+				rendering_player(&vars, x, y, keycode);
 		}
 	}
 }

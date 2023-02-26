@@ -6,7 +6,7 @@
 #    By: azari <azari@student.1337.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 11:34:25 by azari             #+#    #+#              #
-#    Updated: 2023/02/24 07:19:15 by azari            ###   ########.fr        #
+#    Updated: 2023/02/26 19:15:11 by azari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ CFILES	= so_long.c								\
 		  src/map_handling/map_handling.c		\
 		  src/map_handling/map_components.c		\
 		  src/map_handling/map_components2.c	\
+		  src/map_handling/rendring_triggers.c	\
 
 OFILES	= $(CFILES:.c=.o)
 
