@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/02/24 07:37:52 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/26 19:13:59 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@ typedef struct s_vars {
 	void	*fs;
 	void	*col;
 	void	*pl;
-	void	*ext;
+	void	*pl_r;
+	void	*pl_l;
+	void	*pl_p;
+	void	*pl_b;
+	void	*ext_o;
+	void	*ext_c;
+	int		*col_num;
 }				t_vars;
 
 void	raise_ptr_error(void *ptr);
@@ -59,5 +65,7 @@ int		get_map_size(char **map);
 int		check_valid_path_col(char **map);
 void	render_map(t_vars *vars);
 void	import_map_assets(t_vars *mlx);
+void	rendering_player(t_vars *mlx, int x, int y, int keycode);
+void	rendering_exit(t_vars *mlx, int x, int y);
 
 #endif
