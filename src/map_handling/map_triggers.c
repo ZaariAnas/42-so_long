@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:39:59 by azari             #+#    #+#             */
-/*   Updated: 2023/02/26 19:26:53 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/26 20:09:42 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	esc_key(int keyStroke, t_vars *var)
 	exit(0);
 }
 
- 
+void	rendering_map(int keycode, t_vars *vars)
 {
 	int	x;
 	int	y;
