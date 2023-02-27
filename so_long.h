@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/02/26 19:13:59 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/27 14:50:35 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+// # include <mlx.h>
 # include "get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <stdlib.h>
@@ -27,11 +27,11 @@ typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 	void	*img;
-	int		map_lines;
-	char	**map;
 	void	*bw;
 	void	*fs;
-	void	*col;
+	void	*col1;
+	void	*col2;
+	void	*col3;
 	void	*pl;
 	void	*pl_r;
 	void	*pl_l;
@@ -39,8 +39,17 @@ typedef struct s_vars {
 	void	*pl_b;
 	void	*ext_o;
 	void	*ext_c;
+	char	**map;
 	int		*col_num;
+	int		mv_cnt;
+	int		map_lines;
+	int		exit_state;
 }				t_vars;
+
+typedef struct s_coordinations{
+	int	x;
+	int	y;
+}			t_coord;
 
 void	raise_ptr_error(void *ptr);
 void	raise_arg_error(int nbr, char *map);
