@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:03:57 by azari             #+#    #+#             */
-/*   Updated: 2023/02/28 17:05:03 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/28 17:40:15 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	right_step_trigger(t_vars *mlx, int keycode, t_coord c)
 	else if (mlx->map[c.x][c.y + 1] == 'E' && !mlx->col_num)
 	{
 		mlx->mv_cnt++;
-		ft_printf("moves -> %d \n GAME OVER ..YOU WON !");
+		ft_printf("moves -> %d \n GAME OVER ..YOU WON !", mlx->mv_cnt);
 		mlx->map[c.x][c.y + 1] = '0';
 		free(mlx->map);
 		mlx_destroy_window(mlx->mlx, mlx->win);
@@ -48,7 +48,7 @@ void	left_step_trigger(t_vars *mlx, int keycode, t_coord c)
 	else if (mlx->map[c.x][c.y - 1] == 'E' && !mlx->col_num)
 	{
 		mlx->mv_cnt++;
-		ft_printf("moves -> %d \n GAME OVER ..YOU WON !");
+		ft_printf("moves -> %d \n GAME OVER ..YOU WON !", mlx->mv_cnt);
 		mlx->map[c.x][c.y - 1] = '0';
 		free(mlx->map);
 		mlx_destroy_window(mlx->mlx, mlx->win);
@@ -71,7 +71,7 @@ void	up_step_trigger(t_vars *mlx, int keycode, t_coord c)
 	else if (mlx->map[c.x - 1][c.y] == 'E' && !mlx->col_num)
 	{
 		mlx->mv_cnt++;
-		ft_printf("moves -> %d \n GAME OVER ..YOU WON !");
+		ft_printf("moves -> %d \n GAME OVER ..YOU WON !", mlx->mv_cnt);
 		mlx->map[c.x - 1][c.y] = '0';
 		free(mlx->map);
 		mlx_destroy_window(mlx->mlx, mlx->win);
@@ -93,7 +93,7 @@ void	down_step_trigger(t_vars *mlx, int keycode, t_coord c)
 	else if (mlx->map[c.x + 1][c.y] == 'E' && !mlx->col_num)
 	{
 		mlx->mv_cnt++;
-		ft_printf("moves -> %d \n GAME OVER ..YOU WON !");
+		ft_printf("moves -> %d \n GAME OVER ..YOU WON !", mlx->mv_cnt);
 		mlx->map[c.x + 1][c.y] = '0';
 		free(mlx->map);
 		mlx_destroy_window(mlx->mlx, mlx->win);

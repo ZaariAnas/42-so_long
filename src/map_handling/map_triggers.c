@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:39:59 by azari             #+#    #+#             */
-/*   Updated: 2023/02/28 16:33:44 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/28 17:35:47 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void	import_map_assets(t_vars *mlx)
 	mlx->col3 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);
 	mlx->ext_c = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex.xpm", &x, &y);
 	mlx->ext_o = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex.xpm", &x, &y);
-	mlx->pl_d = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
-	mlx->pl_u = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
-	mlx->pl_l = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
-	mlx->pl_r = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
+	mlx->pl_d = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_u.xpm", &x, &y);
+	mlx->pl_u = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_d.xpm", &x, &y);
+	mlx->pl_l = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_l.xpm", &x, &y);
+	mlx->pl_r = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_r.xpm", &x, &y);
 }
 
 void	keystrokes_triggers(t_vars *mlx, int keycode, t_coord t)
