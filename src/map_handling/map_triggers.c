@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:39:59 by azari             #+#    #+#             */
-/*   Updated: 2023/02/28 17:35:47 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/28 19:09:41 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	import_map_assets(t_vars *mlx)
 	mlx->col1 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);
 	mlx->col2 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);
 	mlx->col3 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);
-	mlx->ext_c = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex.xpm", &x, &y);
-	mlx->ext_o = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex.xpm", &x, &y);
+	mlx->ext_c = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex_c.xpm", &x, &y);
+	mlx->ext_o = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex_o.xpm", &x, &y);
 	mlx->pl_d = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_u.xpm", &x, &y);
 	mlx->pl_u = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_d.xpm", &x, &y);
 	mlx->pl_l = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_l.xpm", &x, &y);
