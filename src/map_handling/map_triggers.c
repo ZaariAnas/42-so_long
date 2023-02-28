@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_triggers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:39:59 by azari             #+#    #+#             */
-/*   Updated: 2023/02/27 16:43:54 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/28 16:33:44 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	esc_key(int keyStroke, t_vars *var)
 	exit(0);
 }
 
-void	rendering_map(int keycode, t_vars *vars)
+void	render_map(int keycode, t_vars *vars)
 {
 	int	x;
 	int	y;
@@ -37,11 +37,11 @@ void	rendering_map(int keycode, t_vars *vars)
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->fs,
 				 y * 40, x * 40);
 			else if (vars->map[x][y] == 'E')
-				rendering_exit(&vars, x, y);
+				render_exit(vars, x, y);
 			else if (vars->map[x][y] == 'C')
-				render_collectible(&vars, x, y);
+				render_collectibles(vars, x, y);
 			else
-				rendering_player(&vars, x, y, keycode);
+				render_player(vars, x, y, keycode);
 		}
 	}
 }
@@ -55,27 +55,27 @@ void	import_map_assets(t_vars *mlx)
 	y = 40;
 	mlx->bw = mlx_xpm_file_to_image(mlx->mlx, "././assets/bw.xpm", &x, &y);
 	mlx->fs = mlx_xpm_file_to_image(mlx->mlx, "././assets/fs.xpm", &x, &y);
-	mlx->col1 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col1.xpm", &x, &y);
-	mlx->col2 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col2.xpm", &x, &y);
-	mlx->col3 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col3.xpm", &x, &y);
+	mlx->col1 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);
+	mlx->col2 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);
+	mlx->col3 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);
 	mlx->ext_c = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex.xpm", &x, &y);
 	mlx->ext_o = mlx_xpm_file_to_image(mlx->mlx, "././assets/ex.xpm", &x, &y);
-	mlx->pl_p = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_p.xpm", &x, &y);
-	mlx->pl_b = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_b.xpm", &x, &y);
-	mlx->pl_l = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_l.xpm", &x, &y);
-	mlx->pl_r = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl_r.xpm", &x, &y);
+	mlx->pl_d = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
+	mlx->pl_u = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
+	mlx->pl_l = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
+	mlx->pl_r = mlx_xpm_file_to_image(mlx->mlx, "././assets/pl.xpm", &x, &y);
 }
 
 void	keystrokes_triggers(t_vars *mlx, int keycode, t_coord t)
 {
 	if  (keycode == 2 || keycode == 124)
-		trigger_step_right(&mlx, keycode, t); // function to make ------------------
+		right_step_trigger(mlx, keycode, t);
 	else if  (keycode == 0 || keycode == 123)
-		trigger_step_left(&mlx, keycode, t);// function to make ------------------
+		left_step_trigger(mlx, keycode, t);
 	else if  (keycode == 13 || keycode == 126)
-		trigger_step_up(&mlx , keycode, t);// function to make ------------------
+		up_step_trigger(mlx , keycode, t);
 	else if  (keycode == 1 || keycode == 125)
-		trigger_step_down(&mlx, keycode, t);// function to make
+		down_step_trigger(mlx, keycode, t);
 	else if (keycode == 53)
 	{
 		ft_printf("GAME QUIT !\n");

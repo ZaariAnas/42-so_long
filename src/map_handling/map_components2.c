@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_components2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:10:10 by azari             #+#    #+#             */
-/*   Updated: 2023/02/27 16:59:57 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/28 17:08:00 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,17 @@ char	**dup_map(char **map)
 int	check_valid_path_exit(char **map)
 {
 	char	**dup;
-	int		*pos;
+	t_coord	pos;
 	int		x;
 	int		y;
 
 	dup = dup_map(map);
 	pos = get_position(map, 'P');
-	dup = flood_fill_map(dup, pos[0], pos[1]);
+	dup = flood_fill_map(dup, pos.x, pos.y);
 	pos = get_position(map, 'E');
-	x = pos[0];
-	y = pos[1];
-	if (dup[x + 1][y] == '*' || dup[x - 1][y] == '*'
-		|| dup[x][y + 1] == '*' || dup[x][y - 1] == '*')
+
+	if (dup[pos.x + 1][pos.y] == '*' || dup[pos.x - 1][pos.y] == '*'
+		|| dup[pos.x][pos.y + 1] == '*' || dup[pos.x][pos.y - 1] == '*')
 		return (1);
 	return (0);
 }
@@ -104,13 +103,13 @@ int	check_valid_path_exit(char **map)
 int	check_valid_path_col(char **map)
 {
 	char	**dup;
-	int		*pos;
+	t_coord	pos;
 	int		x;
 	int		y;
 
 	dup = dup_map(map);
 	pos = get_position(map, 'P');
-	dup = flood_fill_map(dup, pos[0], pos[1]);
+	dup = flood_fill_map(dup, pos.x, pos.y);
 	x = -1;
 	while (dup[++x])
 	{
@@ -121,7 +120,7 @@ int	check_valid_path_col(char **map)
 			{
 				if (dup[x + 1][y] != '*' && dup[x - 1][y] != '*'
 					&& dup[x][y + 1] != '*' && dup[x][y - 1] != '*')
-				return (free(pos), 0);
+				return (0);
 			}
 		}
 	}

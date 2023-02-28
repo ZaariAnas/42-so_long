@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_components.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:29:00 by azari             #+#    #+#             */
-/*   Updated: 2023/02/27 17:10:52 by azari            ###   ########.fr       */
+/*   Updated: 2023/02/28 16:53:55 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,29 +90,27 @@ int	check_map_elements(char **map, int size)
 	return (0);
 }
 
-int	*get_position(char **map, char c)
+t_coord	get_position(char **map, char c)
 {
-	int	x;
-	int	y;
-	int	*pos;
-	int	size;
+	t_coord	pnt;
+	int		i;
+	int		j;
+	int		size;
 
-	x = -1;
-	pos = (int *)malloc(sizeof(int) * 2);
+	i = -1;
 	size = get_map_size(map);
-	while (++x < size)
+	while (++i < size)
 	{
-		y = -1;
-		while (map[x][++y])
+		j = -1;
+		while (map[i][++j])
 		{
-			if (map[x][y] == c)
+			if (map[i][j] == c)
 			{
-				pos[0] = x;
-				pos[1] = y;
-				return (pos);
+				pnt.x = i;
+				pnt.y = j;
+				return (pnt);
 			}
 		}
 	}
-	free(pos);
-	return (NULL);
+	return (pnt);
 }
