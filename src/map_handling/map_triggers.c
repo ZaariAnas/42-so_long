@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_triggers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:39:59 by azari             #+#    #+#             */
-/*   Updated: 2023/02/28 19:09:41 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 12:11:34 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ void	import_map_assets(t_vars *mlx)
 {
 	int	x;
 	int	y;
-
-	x = 40;
-	y = 40;
+	
 	mlx->bw = mlx_xpm_file_to_image(mlx->mlx, "././assets/bw.xpm", &x, &y);
 	mlx->fs = mlx_xpm_file_to_image(mlx->mlx, "././assets/fs.xpm", &x, &y);
 	mlx->col1 = mlx_xpm_file_to_image(mlx->mlx, "././assets/col.xpm", &x, &y);

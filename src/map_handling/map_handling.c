@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:40 by azari             #+#    #+#             */
-/*   Updated: 2023/02/21 15:04:50 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 12:18:23 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@ int	count_map_lines(char *map_file)
 {
 	int	v;
 	int	fd;
+	char *tmp;
 
 	fd = open(map_file, O_RDONLY);
 	v = 0;
 	if (fd == -1)
 		raise_error("Error\nfile access failed");
-	while (get_next_line(fd))
+	tmp = get_next_line(fd);
+	while (tmp)
+	{
 		v++;
+		free(tmp);
+		tmp = get_next_line(fd); 
+	}
 	if (!v)
 		raise_error("Error\nempty map file");
 	close(fd);

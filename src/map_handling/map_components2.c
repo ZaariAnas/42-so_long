@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_components2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
+/*   By: azari <azari@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:10:10 by azari             #+#    #+#             */
-/*   Updated: 2023/03/01 13:50:09 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 12:08:35 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int	check_valid_path_exit(char **map)
 
 	if (dup[pos.x + 1][pos.y] == '*' || dup[pos.x - 1][pos.y] == '*'
 		|| dup[pos.x][pos.y + 1] == '*' || dup[pos.x][pos.y - 1] == '*')
-		return (1);
-	return (0);
+		return (free_map(dup), 1);
+	return (free_map(dup), 0);
 }
 
 int	check_valid_path_col(char **map)
@@ -120,9 +120,19 @@ int	check_valid_path_col(char **map)
 			{
 				if (dup[x + 1][y] != '*' && dup[x - 1][y] != '*'
 					&& dup[x][y + 1] != '*' && dup[x][y - 1] != '*')
-				return (0);
+				return (free_map(p), 0);
 			}
 		}
 	}
-	return (1);
+	return (free_map(dup), 1);
+}
+
+void	free_map(char **map)
+{
+	int i;
+
+	i = 0;
+	while (map[i])
+		free(map[i]);
+	free(map);
 }
