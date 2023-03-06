@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 13:23:57 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 20:14:56 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ typedef struct s_vars {
 	void	*img;
 	void	*bw;
 	void	*fs;
-	void	*col1;
-	void	*col2;
-	void	*col3;
+	void	*col;
 	void	*pl;
 	void	*pl_r;
 	void	*pl_l;
@@ -81,7 +79,7 @@ void	right_step_trigger(t_vars *mlx, int keycode, t_coord c);
 void	left_step_trigger(t_vars *mlx, int keycode, t_coord c);
 void	down_step_trigger(t_vars *mlx, int keycode, t_coord c);
 void	up_step_trigger(t_vars *mlx, int keycode, t_coord c);
-int		player_key_stroke(int keycode,t_vars *mlx);
+int		player_key_stroke(int keycode, t_vars *mlx);
 void	keystrokes_triggers(t_vars *mlx, int keycode, t_coord t);
 int		count_collec(t_vars *mlx, int size);
 

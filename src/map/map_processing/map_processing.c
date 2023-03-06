@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:40 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 13:55:11 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 20:09:37 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	process_map(char **map, char *map_file)
 
 int	player_key_stroke(int keycode, t_vars *mlx)
 {
-	t_coord c;
+	t_coord	c;
+
 	c = get_position(mlx->map, 'P');
 	keystrokes_triggers(mlx, keycode, c);
 	render_map(keycode, mlx);

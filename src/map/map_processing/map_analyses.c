@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:35:33 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 14:36:49 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 20:07:20 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	check_valid_path_exit(char **map)
 	pos = get_position(map, 'P');
 	dup = flood_fill_map(dup, pos.x, pos.y);
 	pos = get_position(map, 'E');
-
 	if (dup[pos.x + 1][pos.y] == '*' || dup[pos.x - 1][pos.y] == '*'
 		|| dup[pos.x][pos.y + 1] == '*' || dup[pos.x][pos.y - 1] == '*')
 		return (free_map(dup), 1);

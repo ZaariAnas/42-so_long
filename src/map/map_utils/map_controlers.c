@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:28:10 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 14:36:19 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 20:16:42 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	count_map_lines(char *map_file)
 	{
 		v++;
 		free(tmp);
-		tmp = get_next_line(fd); 
+		tmp = get_next_line(fd);
 	}
 	if (!v)
 		raise_error("Error\nempty map file");
@@ -71,7 +71,7 @@ int	get_map_size(char **map)
 
 void	free_map(char **map)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (map[++i])

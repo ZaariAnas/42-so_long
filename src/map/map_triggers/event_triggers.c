@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:49:31 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 13:45:47 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 20:11:17 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	esc_key(int keyStroke, t_vars *var)
 
 void	keystrokes_triggers(t_vars *mlx, int keycode, t_coord t)
 {
-	if  (keycode == 2 || keycode == 124)
+	if (keycode == 2 || keycode == 124)
 		right_step_trigger(mlx, keycode, t);
-	else if  (keycode == 0 || keycode == 123)
+	else if (keycode == 0 || keycode == 123)
 		left_step_trigger(mlx, keycode, t);
-	else if  (keycode == 13 || keycode == 126)
-		up_step_trigger(mlx , keycode, t);
-	else if  (keycode == 1 || keycode == 125)
+	else if (keycode == 13 || keycode == 126)
+		up_step_trigger(mlx, keycode, t);
+	else if (keycode == 1 || keycode == 125)
 		down_step_trigger(mlx, keycode, t);
 	else if (keycode == 53)
 	{

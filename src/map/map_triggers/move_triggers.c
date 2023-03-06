@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_tiggers.c                                     :+:      :+:    :+:   */
+/*   move_triggers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:03:57 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 13:45:14 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 20:11:53 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	left_step_trigger(t_vars *mlx, int keycode, t_coord c)
 		exit(-1);
 	}
 }
-
 
 void	up_step_trigger(t_vars *mlx, int keycode, t_coord c)
 {
