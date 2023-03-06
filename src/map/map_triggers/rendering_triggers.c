@@ -1,16 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendring_triggers.c                                :+:      :+:    :+:   */
+/*   rendering_triggers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 16:49:31 by azari             #+#    #+#             */
-/*   Updated: 2023/02/28 15:18:53 by azari            ###   ########.fr       */
+/*   Created: 2023/02/14 13:39:59 by azari             #+#    #+#             */
+/*   Updated: 2023/03/06 13:47:19 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../../../so_long.h"
+
+void	render_map(int keycode, t_vars *vars)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	while (vars->map[++x])
+	{
+		y = -1;
+		while (vars->map[x][++y])
+		{
+			if (vars->map[x][y] == '1')
+				mlx_put_image_to_window(vars->mlx, vars->win, vars->bw,
+				 y * 40, x * 40);
+			else if (vars->map[x][y] == '0')
+				mlx_put_image_to_window(vars->mlx, vars->win, vars->fs,
+				 y * 40, x * 40);
+			else if (vars->map[x][y] == 'E')
+				render_exit(vars, x, y);
+			else if (vars->map[x][y] == 'C')
+				render_collectibles(vars, x, y);
+			else
+				render_player(vars, x, y, keycode);
+		}
+	}
+}
 
 void	render_player(t_vars *mlx, int x, int y, int keycode)
 {
@@ -53,4 +80,3 @@ void	render_collectibles(t_vars *mlx, int x, int y)
 		c = 3;	
 	}
 }
-

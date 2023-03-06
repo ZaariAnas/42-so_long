@@ -6,7 +6,7 @@
 #    By: azari <azari@student.1337.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 11:34:25 by azari             #+#    #+#              #
-#    Updated: 2023/02/28 16:08:35 by azari            ###   ########.fr        #
+#    Updated: 2023/03/06 14:04:08 by azari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,20 +16,21 @@ FLAGS	= -Wall -Wextra -Werror
 
 NAME 	= so_long
 
-CFILES	= so_long.c								\
-		  src/errors/error_handling.c			\
-		  get_next_line/get_next_line.c			\
-		  get_next_line/get_next_line_utils.c	\
-		  src/map_handling/map_triggers.c		\
-		  src/map_handling/map_handling.c		\
-		  src/map_handling/map_components.c		\
-		  src/map_handling/map_components2.c	\
-		  src/map_handling/rendring_triggers.c	\
-		  src/map_handling/move_tiggers.c		\
-		  src/map_handling/map_launchers.c		\
-		  ft_printf/ft_printf.c					\
-		  ft_printf/ft_printf_utils.c			\
-
+CFILES	= so_long.c										\
+		  imports/get_next_line/get_next_line.c			\
+		  imports/get_next_line/get_next_line_utils.c	\
+		  imports/ft_printf/ft_printf.c					\
+		  imports/ft_printf/ft_printf_utils.c			\
+		  src/errors/error_handling.c					\
+		  src/map/map_processing/map_processing.c		\
+		  src/map/map_processing/map_analyses.c			\
+		  src/map/map_processing/map_analyses2.c		\
+		  src/map/map_triggers/event_triggers.c			\
+		  src/map/map_triggers/import_triggers.c		\
+		  src/map/map_triggers/move_triggers.c			\
+		  src/map/map_triggers/rendering_triggers.c		\
+		  src/map/map_utils/map_controlers.c			\
+		  src/map/map_utils/map_controlers2.c			\
 
 OFILES	= $(CFILES:.c=.o)
 

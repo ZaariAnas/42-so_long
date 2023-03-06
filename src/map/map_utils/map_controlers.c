@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_handling.c                                     :+:      :+:    :+:   */
+/*   map_controlers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 14:10:40 by azari             #+#    #+#             */
-/*   Updated: 2023/02/21 15:04:50 by azari            ###   ########.fr       */
+/*   Created: 2023/03/06 13:28:10 by azari             #+#    #+#             */
+/*   Updated: 2023/03/06 13:33:13 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../../../so_long.h"
 
 int	count_map_lines(char *map_file)
 {
-	int	v;
-	int	fd;
+	int		v;
+	int		fd;
+	char	*tmp;
 
 	fd = open(map_file, O_RDONLY);
 	v = 0;
 	if (fd == -1)
 		raise_error("Error\nfile access failed");
-	while (get_next_line(fd))
+	tmp = get_next_line(fd);
+	while (tmp)
+	{
+		free(tmp);
 		v++;
+		tmp = get_next_line(fd);
+	}
 	if (!v)
 		raise_error("Error\nempty map file");
 	close(fd);
@@ -53,25 +59,6 @@ char	**get_map(char *map_file)
 	return (map);
 }
 
-void	process_map(char **map, char *map_file)
-{
-	int	size;
-
-	size = count_map_lines(map_file);
-	if (check_map_shape(map, size))
-		raise_error("Error\nmap shape unvalid");
-	if (check_map_walls(map, size))
-		raise_error("Error\nmap barriers unvalid");
-	if (check_map_elements(map, size))
-		raise_error("Error\nmap elements unvalid");
-	if (check_map_element_validity(map, size))
-		raise_error("Error\nmap elements unvalid");
-	if (!check_valid_path_exit(map))
-		raise_error("Error\nmap conflict :: no valid path to exit");
-	if (!check_valid_path_col(map))
-		raise_error("Error\nmap conflict :: no valid path to collectibles");
-}
-
 int	get_map_size(char **map)
 {
 	int	i;
@@ -80,4 +67,34 @@ int	get_map_size(char **map)
 	while (map[i])
 		i++;
 	return (i);
+}
+
+void	free_map(char **map)
+{
+	int i;
+
+	i = -1;
+	while (map[++i])
+		free(map[i]);
+	free(map);
+}
+
+int	count_collec(t_vars *mlx, int size)
+{
+	int	i;
+	int	j;
+	int	norm;
+
+	i = -1;
+	norm = ft_strlen(mlx->map[0]) - 1;
+	while (++i < size)
+	{
+		j = -1;
+		while (++j < norm - 1)
+		{
+			if (mlx->map[i][j] == 'C')
+				mlx->col_num++;
+		}
+	}
+	return (mlx->col_num);
 }

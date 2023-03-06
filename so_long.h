@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/02/28 17:18:23 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 13:23:57 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include "get_next_line/get_next_line.h"
-# include "ft_printf/ft_printf.h"
+# include "imports/get_next_line/get_next_line.h"
+# include "imports/ft_printf/ft_printf.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -62,6 +62,7 @@ int		count_map_lines(char *map_file);
 int		check_map_walls(char **map, int size);
 int		check_map_shape(char **map, int size);
 int		check_map_elements(char **map, int size);
+void	free_map(char **str);
 int		check_map_element_validity(char **map, int size);
 int		check_in_set(char c, char *set);
 int		get_occurence(char c, char **map, int size);
