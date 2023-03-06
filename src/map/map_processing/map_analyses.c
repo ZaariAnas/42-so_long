@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:35:33 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 13:57:39 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 14:36:49 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	check_valid_path_col(char **map)
 			{
 				if (dup[x + 1][y] != '*' && dup[x - 1][y] != '*'
 					&& dup[x][y + 1] != '*' && dup[x][y - 1] != '*')
-				return (free_map(dup), 0);
+					return (free_map(dup), 0);
 			}
 		}
 	}
@@ -107,4 +107,3 @@ int	check_map_elements(char **map, int size)
 	}
 	return (0);
 }
-
