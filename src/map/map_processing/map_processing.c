@@ -6,17 +6,19 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:40 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 20:09:37 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 21:16:48 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../so_long.h"
 
-void	process_map(char **map, char *map_file)
+void	process_map(char **map, char *map_file, t_vars *mlx)
 {
 	int	size;
 
 	size = count_map_lines(map_file);
+	if (check_map_width(mlx) && check_map_height(mlx))
+		raise_error("Error\nmap size too big");
 	if (check_map_shape(map, size))
 		raise_error("Error\nmap shape unvalid");
 	if (check_map_walls(map, size))

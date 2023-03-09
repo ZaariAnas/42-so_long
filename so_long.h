@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:56:37 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 20:14:56 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/09 20:07:29 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	raise_error(char *str);
 int		esc_key(int keyStroke, t_vars *var);
 int		ft_strcmp(char *s1, char *s2);
 char	**get_map(char *map_file);
-void	process_map(char **map, char *map_file);
+void	process_map(char **map, char *map_file, t_vars *mlx);
 int		count_map_lines(char *map_file);
 int		check_map_walls(char **map, int size);
 int		check_map_shape(char **map, int size);
@@ -81,6 +81,9 @@ void	down_step_trigger(t_vars *mlx, int keycode, t_coord c);
 void	up_step_trigger(t_vars *mlx, int keycode, t_coord c);
 int		player_key_stroke(int keycode, t_vars *mlx);
 void	keystrokes_triggers(t_vars *mlx, int keycode, t_coord t);
+char	*ft_strnstr(const char *hay, const char *ndl, size_t len);
 int		count_collec(t_vars *mlx, int size);
+int		check_map_height(t_vars *mlx);
+int		check_map_width(t_vars *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:49:31 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 20:11:17 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/06 21:01:29 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	esc_key(int keyStroke, t_vars *var)
 {
-	mlx_destroy_window(var->mlx, var->win);
-	free(var->mlx);
+	ft_printf("GAME QUIT !\n");
 	exit(0);
 }
 
@@ -33,6 +32,6 @@ void	keystrokes_triggers(t_vars *mlx, int keycode, t_coord t)
 	{
 		ft_printf("GAME QUIT !\n");
 		mlx_destroy_window(mlx->mlx, mlx->win);
-		exit(-1);
+		exit(0);
 	}
 }

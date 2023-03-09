@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:10:10 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 13:58:09 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/09 20:06:53 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,27 @@ char	**dup_map(char **map)
 		dup[i] = ft_strdup(map[i]);
 	dup[i] = NULL;
 	return (dup);
+}
+
+char	*ft_strnstr(const char *hay, const char *ndl, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	if (ndl[j] == '\0')
+		return ((char *)hay);
+	while (i < len && hay[i])
+	{
+		j = 0;
+		while (hay[i + j] == ndl[j] && i + j < len)
+		{
+			if (!ndl[j + 1])
+				return ((char *)&hay[i]);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

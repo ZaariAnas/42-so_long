@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:29:00 by azari             #+#    #+#             */
-/*   Updated: 2023/03/06 14:02:35 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/09 13:11:09 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,25 @@ int	check_map_walls(char **map, int size)
 				return (1);
 		}
 	}
+	return (0);
+}
+
+int	check_map_width(t_vars *mlx)
+{
+	int	i;
+
+	i = (ft_strlen(mlx->map[0]) - 1) * 40;
+	if (i > 2560)
+		return (1);
+	return (0);
+}
+
+int	check_map_height(t_vars *mlx)
+{
+	int	i;
+
+	i = mlx->map_lines * 40;
+	if (i > 1440)
+		return (1);
 	return (0);
 }

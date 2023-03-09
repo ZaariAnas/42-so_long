@@ -6,7 +6,7 @@
 /*   By: azari <azari@student.1337.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:09:23 by azari             #+#    #+#             */
-/*   Updated: 2023/02/21 16:57:36 by azari            ###   ########.fr       */
+/*   Updated: 2023/03/09 20:10:24 by azari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ void	raise_arg_error(int nbr, char *map)
 	int		start;
 	char	*ext;
 
-	if (nbr != 2)
-		raise_error("error:\nunvalid arguments");
-	start = ft_strlen(map) - 4;
+	start = ft_strlen(map);
+	if (!ft_strnstr(map, ".ber", start) || nbr != 2)
+		raise_error("error:\nunvalid map file");
+	start -= 4;
 	ext = ft_substr(map, start, 4);
 	if (ft_strcmp(".ber", ext))
 	{
